@@ -1,0 +1,31 @@
+﻿<h1 align ="center">{% block title %}Welcome to Chatbot{% endblock %}</h1>
+<body align ="center" bgcolor ="rgb(255,255,0)">
+    <form action="http://localhost:5000/" method="POST">
+        {% if data_output %}
+        <h4> Your prvious responses for current session </h4>
+        <table border=1 align="center">
+            <tr>
+            <th>input </th>
+            <td>output</td>
+            </tr>
+            {% for i in range(0,length) %}
+            <tr>
+                <th> {{ data_input[i] }} </th>
+                <td> {{ data_output[i] }} </td>
+            </tr>
+            {% endfor %}
+        </table>
+        <br />
+
+        <h3>Your output for "{{data_input[-1] }}" is: "{{ data_output[-1] }}"!</h3>
+        {% else %}
+        <h4>Please Provie Your Input</h4>
+        {% endif %}
+        <br />
+        <p>Provide Your Input <input type="text" name="User_Input" /></p>
+        <input type="submit" value=" Click here to get Output">
+        <br />
+    </form>
+</body>
+
+
